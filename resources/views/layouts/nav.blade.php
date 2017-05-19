@@ -18,7 +18,7 @@
             <ul class="nav navbar-nav navbar-right">
                @if(Auth::check())
                <li class="nav-item navbar-right nav-link">
-                You are signed in as {{ Auth::user()->username }}
+                Welcome, {{ Auth::user()->name }}
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="/logout">Logout</a>
