@@ -18,7 +18,7 @@
             <ul class="nav navbar-nav navbar-right">
                @if(Auth::check())
                <li class="nav-item navbar-right nav-link">
-                Welcome, {{ Auth::user()->name }}
+                Welcome, <a href="/dashboard/profile" style="text-decoration: none;">{{ Auth::user()->name }}</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="/logout">Logout</a>

@@ -26,3 +26,21 @@ Route::post('/register', 'RegistrationController@store');
 Route::get('/login','SessionsController@create');
 Route::post('/login','SessionsController@store');
 Route::get('/logout','SessionsController@destroy');
+
+
+Route::get('/dashboard/profile', 'ProfileController@show');
+Route::post('/dashboard/profile', 'ProfileController@update');
+
+Route::get('/dashboard', 'AdminController@index');
+Route::get('/dashboard/users', 'AdminController@users');
+Route::post('/dashboard/users', 'AdminController@destroyUser');
+Route::get('/dashboard/adverification', 'AdminController@adverif');
+
+Route::get('/testing',function () {
+	return view('dashboard.master');
+});
+
+
+// Route::get('/protected', ['middleware' => ['auth', 'admin'], function() {
+//     return "this page requires that you be logged in and an Admin";
+// }]);
