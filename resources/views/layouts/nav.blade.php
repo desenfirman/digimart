@@ -16,11 +16,15 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-               @if(Auth::check())
-               <li class="nav-item navbar-right nav-link">
-                Welcome, <a href="/dashboard/profile" style="text-decoration: none;">{{ Auth::user()->name }}</a>
-            </li>
-            <li class="nav-item active">
+             @if(Auth::check())
+             <li class="nav-item navbar-right nav-link">
+                 @if(Auth::user()->level !=1)
+                 Welcome, <a  href="/dashboard/profile" style="text-decoration: none;">{{ Auth::user()->name }}</a>
+                 @else
+                 <a href="/dashboard" style="text-decoration: none;">Admin Dashboard</a>
+                 @endif
+             </li>
+             <li class="nav-item active">
                 <a class="nav-link" href="/logout">Logout</a>
             </li>
             @endif

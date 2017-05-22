@@ -21,8 +21,12 @@
                 <b>Personal Information</b>
             </div>
             <div class="card-block">
-                <form method="POST">
+                <form method="POST" action="/dashboard/profile" enctype="multipart/form-data">
                   {{csrf_field()}}
+
+
+
+
                   <div class="form-group row">
                     <label class="col-2 col-form-label">Name</label>
                     <div class="col-10">
@@ -51,7 +55,20 @@
                     </div>
                 </div>
 
-                <center>
+                <div class="form-group row">
+                  <div class="col-2" style="margin-right:15px;max-width:150em;max-height: 200em;">
+                      @if(empty(Auth::user()->display_picture))
+                      <img src="http://placehold.it/150x200" class="img-thumbnail" />
+                      @else
+                      <img src="<?php
+                      echo asset("storage/".Auth::user()->display_picture);
+                      ?>" class="img-thumbnail" />
+                      @endif
+
+                  </div>
+                  <input type="file" name="display_picture"  accept="image/*" />
+
+                  <center>
                     <button type="input" class="btn btn-primary">Save</button>
                 </center>
             </form>

@@ -36,9 +36,6 @@ Route::get('/dashboard/users', 'AdminController@users');
 Route::post('/dashboard/users', 'AdminController@destroyUser');
 Route::get('/dashboard/adverification', 'AdminController@adverif');
 
-Route::get('/testing',function () {
-	return view('dashboard.master');
-});
 
 
 // Route::get('/protected', ['middleware' => ['auth', 'admin'], function() {
